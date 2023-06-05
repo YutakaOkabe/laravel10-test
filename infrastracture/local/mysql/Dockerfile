@@ -1,6 +1,7 @@
 FROM mysql:8.0-debian
 
 ARG MYSQL_USER_ID=${MYSQL_USER_ID}
+
 RUN usermod -u ${MYSQL_USER_ID} mysql
 
 RUN apt-get update && apt-get install -y locales \

@@ -4,7 +4,10 @@ ARG WWW_USER_ID=${WWW_USER_ID}
 ARG WWW_GROUP_ID=${WWW_GROUP_ID}
 
 RUN apt update && apt install -y zlib1g-dev g++ libicu-dev zip libzip-dev zip libpq-dev \
-    && docker-php-ext-install intl opcache pdo pdo_mysql \
+    # mysqlの場合
+    # && docker-php-ext-install intl opcache pdo pdo_mysql \
+    # mysqlの場合
+    && docker-php-ext-install intl opcache pdo pgsql pdo_pgsql \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-configure zip \
