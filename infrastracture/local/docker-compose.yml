@@ -12,6 +12,7 @@ services:
         - WWW_GROUP_ID=${WWW_GROUP_ID}
     ports:
       - ${WWW_PORT}:80
+      - 5173:5173
     volumes:
       - ${PROJECT_PATH_HOST}:/var/www/html
     depends_on:
@@ -44,7 +45,7 @@ services:
   postgres:
     build: ./postgres
     ports:
-      - '${POSTGRES_PORT}:5432'
+      - ${POSTGRES_PORT}:5432
     volumes:
       - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
     environment:
